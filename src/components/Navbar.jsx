@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, MessageCircle, User, Briefcase, Code } from 'lucide-react';
 import { Award } from 'lucide-react';
-
+import { GraduationCap } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +17,11 @@ const Navbar = () => {
   const navItems = [
     { href: '#home', label: 'Home', icon: User },
     { href: '#about', label: 'About', icon: User },
+    { href: '#education', label: 'Education', icon: User },
     { href: '#projects', label: 'Projects', icon: Briefcase },
-    { href: '#certificates', label: 'Certificate', icon: Award },
+    { href: '#certificates', label: 'Certificates', icon: Award },
     { href: '#skills', label: 'Skills', icon: Code },
-    { href: '#contact', label: 'Contact', icon: MessageCircle },
+    { href: '#contact', label: 'Contact', icon: GraduationCap },
   ];
 
   return (

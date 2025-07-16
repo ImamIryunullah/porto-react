@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Github, Linkedin } from 'lucide-react';
 
+
+
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -34,7 +37,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-3 gap-12">
           {/* Info */}
           <div className="space-y-8">
             <div>
@@ -46,7 +49,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-gray-900 font-medium">Email</p>
-                    <p className="text-gray-600">john.doe@example.com</p>
+                    <p className="text-gray-600">crazywar19@gmail.com</p>
                   </div>
                 </div>
 
@@ -59,6 +62,7 @@ const Contact = () => {
                     <p className="text-gray-600">Malang, East Java, Indonesia</p>
                   </div>
                 </div>
+
               </div>
             </div>
 

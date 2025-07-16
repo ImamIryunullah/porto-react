@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { ExternalLink, Award, Calendar, Building2, X, CheckCircle, Star, Trophy } from 'lucide-react';
 import LearnovaImg from '../assets/sertif/learnova.png'
 import CiscoImg from '../assets/sertif/cisco.png'
+import CapstoneImg from '../assets/sertif/capstone.png'
+import VinixImg from '../assets/sertif/vinix.png'
+import MagangImg from '../assets/sertif/magang.png'
+import IbluImg from '../assets/sertif/iblu.png'
 
 const CertificatesSection = () => {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
@@ -27,52 +31,63 @@ const CertificatesSection = () => {
       date: '2022',
       image: CiscoImg,
       description: 'has successfully achieved student level credential for completing IT Essentials course administered by the undersigned instructor. The student was able to proficiently',
-      credentialId: 'AWS-CP-2024-002',
+      credentialId: '',
       skills: ['Windows operating systems.Implement basic host, data, and network security.' ],
       verified: true,
     },
     {
       id: 3,
-      title: 'JavaScript Algorithms and Data Structures',
-      issuer: 'freeCodeCamp',
-      date: '2023',
-      image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop',
-      description: 'Comprehensive JavaScript programming and algorithmic problem solving. Master complex algorithms, data structures, and programming paradigms essential for software development.',
-      credentialId: 'FCC-JS-2023-003',
-      skills: ['JavaScript', 'Algorithms', 'Data Structures', 'Problem Solving', 'ES6+'],
+      title: 'Technology for Society Capstone: Sistem Informasi Kelurahan Bunulrejo Malang',
+      issuer: 'Malang State University',
+      date: '2024',
+      image: CapstoneImg,
+      description: 'An integrated information system developed to support administrative services and citizen reporting for Bunulrejo Subdistrict in Malang. This project was part of the Technology for Society (TfS) program, utilizing Laravel and JavaScript to streamline letter processing and citizen data management through a digital web platform.',
+      credentialId: '16.5.74/UN32.5.1/KM/2024',
+      skills: ['JavaScript', 'PHP', 'Laravel', 'MySql'],
       verified: true,
     },
     {
       id: 4,
-      title: 'Full Stack Web Development',
-      issuer: 'Coursera',
-      date: '2023',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop',
-      description: 'Complete web development bootcamp covering frontend and backend technologies. End-to-end development skills including database design, API development, and modern deployment practices.',
-      credentialId: 'COURSERA-FS-2023-004',
-      skills: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'MongoDB', 'REST APIs'],
+      title: 'MSIB: Junior Data Scientist Batch II',
+      issuer: 'Vinix7',
+      date: '2025',
+      image: VinixImg,
+      description: 'Successfully completed an internship at PT. Inovasi Lantera Cipta Kreasi under the Vinix7 Independent Study and Internship Program (SIB Mandiri), serving as a Junior Data Scientist in the Data Science Division.',
+      credentialId: '007/Batch-II-MSIB-VINIX7/Div-DataSains',
+      skills: ['Python', 'Pandas', 'NumPy', 'Scikit-Learn', 'SQL', 'Data Visualization', 'Machine Learning'],
       verified: true,
     },
     {
       id: 5,
-      title: 'Python Data Science',
-      issuer: 'DataCamp',
-      date: '2023',
-      image: 'https://images.unsplash.com/photo-1526379879527-8559ecfcaec0?w=400&h=300&fit=crop',
+      title: 'Internship Certification',
+      issuer: 'PT Vinix Seven Aurum',
+      date: '2025',
+      image: MagangImg,
       description: 'Data analysis and machine learning with Python and popular libraries. Advanced statistical analysis, data visualization, and predictive modeling techniques.',
-      credentialId: 'DC-PY-2023-005',
-      skills: ['Python', 'Pandas', 'NumPy', 'Machine Learning', 'Statistics'],
+      credentialId: '007/BATCH-II-MG/VINIX7/DIV-DATASAINS ',
+      skills: ['Junior Data Scientist'],
       verified: true,
     },
     {
       id: 6,
-      title: 'UI/UX Design Fundamentals',
-      issuer: 'Google',
-      date: '2022',
-      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop',
-      description: 'User experience design principles and modern design practices. Comprehensive understanding of user-centered design, accessibility, and design systems.',
-      credentialId: 'GOOGLE-UX-2022-006',
-      skills: ['UI/UX', 'Figma', 'User Research', 'Prototyping', 'Design Systems'],
+      title: 'Certificate Of "Menciptakan Presentasi Efektif Menggunakan Power Point dengan Bantuan AI"',
+      issuer: 'iBLU Academy',
+      date: '2024',
+      image: IbluImg,
+      description: 'Actively participated in creating effective presentations using PowerPoint with the assistance of AI tools.',
+      credentialId: '007/Dik-KT/II/2024',
+      skills: ['PowerPoint', 'AI Tools', 'Presentation Design', 'Visual Communication', 'Public Speaking'],
+      verified: true,
+    },
+    {
+      id: 7,
+      title: 'Certificate Of "Menciptakan Presentasi Efektif Menggunakan Power Point dengan Bantuan AI"',
+      issuer: 'iBLU Academy',
+      date: '2024',
+      image: IbluImg,
+      description: 'Actively participated in creating effective presentations using PowerPoint with the assistance of AI tools.',
+      credentialId: '007/Dik-KT/II/2024',
+      skills: ['PowerPoint', 'AI Tools', 'Presentation Design', 'Visual Communication', 'Public Speaking'],
       verified: true,
     }
   ];
@@ -194,7 +209,7 @@ const CertificatesSection = () => {
 
         {/* Modal */}
         {selectedCertificate && (
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fadeIn">
+          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50 animate-fadeIn mt-16">
             <div className="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform animate-slideUp">
               <div className="relative">
                 <img
@@ -276,10 +291,6 @@ const CertificatesSection = () => {
                       <span className="text-green-800 font-medium">Certificate Verified</span>
                     </div>
                   </div>
-                  <button className="flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
-                    <ExternalLink className="w-5 h-5 mr-2" />
-                    View Certificate
-                  </button>
                 </div>
               </div>
             </div>

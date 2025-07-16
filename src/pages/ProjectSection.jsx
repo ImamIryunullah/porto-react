@@ -26,7 +26,7 @@ const ProjectsSection = () => {
       live: 'https://lpkni.id',
       featured: true,
       category: 'fullstack',
-      status: 'completed',
+      
       year: '2024',
       team: 4,
       duration: '6 months',
@@ -42,7 +42,7 @@ const ProjectsSection = () => {
       live: 'https://pep-miniolympics2025.com/',
       featured: true,
       category: 'fullstack',
-      status: 'completed',
+      
       year: '2024',
       team: 3,
       duration: '4 months',
@@ -58,7 +58,7 @@ const ProjectsSection = () => {
       live: '#',
       featured: true,
       category: 'frontend',
-      status: 'completed',
+      
       year: '2024',
       team: 2,
       duration: '3 months',
@@ -74,7 +74,7 @@ const ProjectsSection = () => {
       live: '#',
       featured: false,
       category: 'frontend',
-      status: 'completed',
+      
       year: '2023',
       team: 1,
       duration: '2 months',
@@ -90,7 +90,6 @@ const ProjectsSection = () => {
       live: '#',
       featured: true,
       category: 'fullstack',
-      status: 'in-progress',
       year: '2024',
       team: 3,
       duration: '4 months',
@@ -106,7 +105,7 @@ const ProjectsSection = () => {
       live: '#',
       featured: false,
       category: 'backend',
-      status: 'completed',
+      
       year: '2023',
       team: 1,
       duration: '1 month',
@@ -122,7 +121,6 @@ const ProjectsSection = () => {
       live: '#',
       featured: false,
       category: 'backend',
-      status: 'completed',
       year: '2023',
       team: 1,
       duration: '2 weeks',
@@ -168,21 +166,6 @@ const ProjectsSection = () => {
     document.body.style.overflow = 'unset';
   };
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case 'completed': return 'bg-green-100 text-green-800 border-green-200';
-      case 'in-progress': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      default: return 'bg-gray-100 text-gray-800 border-gray-200';
-    }
-  };
-
-  const getStatusIcon = (status) => {
-    switch (status) {
-      case 'completed': return <Award className="w-4 h-4" />;
-      case 'in-progress': return <Zap className="w-4 h-4" />;
-      default: return <Code className="w-4 h-4" />;
-    }
-  };
 
   return (
     <section ref={sectionRef} id="projects" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
@@ -265,10 +248,6 @@ const ProjectsSection = () => {
                       <span>Featured</span>
                     </div>
                   )}
-                  <div className={`px-3 py-1 rounded-full text-sm font-medium border flex items-center space-x-1 ${getStatusColor(project.status)} transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300`}>
-                    {getStatusIcon(project.status)}
-                    <span className="capitalize">{project.status.replace('-', ' ')}</span>
-                  </div>
                 </div>
 
                 {/* Hover Overlay */}
@@ -371,10 +350,7 @@ const ProjectsSection = () => {
                         <span>Featured</span>
                       </div>
                     )}
-                    <div className={`px-3 py-1 rounded-full text-sm font-medium border flex items-center space-x-1 ${getStatusColor(selectedProject.status)}`}>
-                      {getStatusIcon(selectedProject.status)}
-                      <span className="capitalize">{selectedProject.status.replace('-', ' ')}</span>
-                    </div>
+                  
                   </div>
                   
                   <h3 className="text-3xl font-bold text-white mb-2">
