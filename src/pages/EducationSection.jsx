@@ -3,7 +3,7 @@ import { GraduationCap, Calendar, MapPin, Award, BookOpen, Users, Code, Database
 
 const EducationTimeline = () => {
   const [visibleItems, setVisibleItems] = useState(new Set());
-  const [activeTab, setActiveTab] = useState('academic');
+  const [activeTab] = useState('academic');
   const observerRef = useRef(null);
 
   const academicEducation = [
@@ -12,11 +12,11 @@ const EducationTimeline = () => {
       institution: 'Universitas Negeri Malang',
       degree: 'Bachelor of Engineering',
       field: 'Informatics Engineering',
-      period: '2021 - 2025',
+      period: '2022 - 2026',
       location: 'Malang, East Java',
       gpa: '3.75/4.00',
       status: 'Graduated',
-      description: 'Specialized in software engineering, data structures, algorithms, and web development. Completed capstone project on Information System for Bunulrejo Subdistrict.',
+      description: 'Specialized in fullstack web dev. Completed more 15+ projects.',
       achievements: [
         'Capstone Project: Information System for Bunulrejo Subdistrict',
         'Technology for Society (TfS) Program Participant',
@@ -28,79 +28,37 @@ const EducationTimeline = () => {
     },
     {
       id: 2,
-      institution: 'SMA Negeri 1 Malang',
-      degree: 'High School Diploma',
-      field: 'Science (Mathematics and Natural Sciences)',
-      period: '2018 - 2021',
-      location: 'Malang, East Java',
-      gpa: '89.5/100',
+      institution: '',
+      degree: 'Internship at Universiti Teknikal Malaysia Melaka',
+      field: 'Student Mobility Programme focused on Web Developing',
+      period: '2024 - 2025',
+      location: 'Melaka, Malaysia',
+      gpa: '80/100',
       status: 'Graduated',
       description: 'Focused on mathematics, physics, and computer science. Developed early interest in programming and technology.',
       achievements: [
-        'Top 10% of graduating class',
-        'Computer Science Club President',
+        'Top 3 of graduating class',
         'Regional Mathematics Olympiad Participant',
-        'Science Fair Winner - Technology Category'
       ],
-      skills: ['Mathematics', 'Physics', 'Basic Programming', 'Problem Solving', 'Leadership'],
+      skills: ['Laravel', 'PHP', 'Problem Solving', 'Leadership'],
       color: 'green'
-    }
-  ];
-
-  const professionalEducation = [
+    },
     {
       id: 3,
-      institution: 'Vinix7 - MSIB Program',
-      degree: 'Junior Data Scientist Certification',
-      field: 'Data Science & Machine Learning',
-      period: '2024 - 2025',
-      location: 'Remote/Hybrid',
-      status: 'Completed',
-      description: 'Intensive 6-month program focused on data science, machine learning, and Python development. Gained hands-on experience with real-world projects.',
+      institution: 'SMA Negeri 1 Kota Bima',
+      degree: 'High School Diploma',
+      field: 'Science (Mathematics and Natural Sciences)',
+      period: '2019 - 2022',
+      location: 'Kota Bima, West Nusa Tenggara',
+      gpa: '95.5/100',
+      status: 'Graduated',
+      description: 'Focused on mathematics, physics, and computer science. Developed early interest in programming and technology.',
       achievements: [
-        'Successfully completed 200+ hours of training',
-        'Developed 5 machine learning projects',
-        'Mentored junior participants',
-        'Received Outstanding Performance Award'
+        'Top 3 of graduating class',
+        'Regional Mathematics Olympiad Participant',
       ],
-      skills: ['Python', 'Pandas', 'NumPy', 'Scikit-Learn', 'SQL', 'Data Visualization', 'Machine Learning'],
-      color: 'purple'
-    },
-    {
-      id: 4,
-      institution: 'Cisco Networking Academy',
-      degree: 'IT Essentials Certification',
-      field: 'Information Technology',
-      period: '2022',
-      location: 'Online',
-      status: 'Certified',
-      description: 'Comprehensive training in computer hardware, operating systems, and networking fundamentals.',
-      achievements: [
-        'Passed certification exam with 95% score',
-        'Completed hands-on lab exercises',
-        'Demonstrated proficiency in troubleshooting',
-        'Network security fundamentals mastery'
-      ],
-      skills: ['Windows OS', 'Network Security', 'Hardware Troubleshooting', 'System Administration'],
-      color: 'orange'
-    },
-    {
-      id: 5,
-      institution: 'LearnovaUM',
-      degree: 'English for IT Professionals',
-      field: 'Technical Communication',
-      period: '2022',
-      location: 'Online',
-      status: 'Certified',
-      description: 'Specialized English course designed for IT professionals, focusing on technical communication and documentation.',
-      achievements: [
-        'Improved technical writing skills',
-        'Enhanced presentation abilities',
-        'Mastered IT terminology in English',
-        'Completed final project presentation'
-      ],
-      skills: ['Technical Writing', 'Presentation Skills', 'IT Terminology', 'Professional Communication'],
-      color: 'teal'
+      skills: ['Mathematics', 'Physics', 'Basic Programming', 'Problem Solving', 'Leadership'],
+      color: 'yellow'
     }
   ];
 
@@ -154,7 +112,7 @@ const EducationTimeline = () => {
   };
 
   return (
-    <section id="education" className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-screen">
+    <section id="education" className="py-16 bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -167,36 +125,6 @@ const EducationTimeline = () => {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             A comprehensive timeline of my academic achievements and professional development
           </p>
-        </div>
-
-        {/* Tab Navigation */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-2xl p-2 shadow-lg border border-gray-200">
-            <div className="flex space-x-2">
-              <button
-                onClick={() => setActiveTab('academic')}
-                className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${
-                  activeTab === 'academic'
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-                }`}
-              >
-                <BookOpen className="w-5 h-5" />
-                <span>Academic Education</span>
-              </button>
-              <button
-                onClick={() => setActiveTab('professional')}
-                className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center space-x-2 ${
-                  activeTab === 'professional'
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg transform scale-105'
-                    : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
-                }`}
-              >
-                <Award className="w-5 h-5" />
-                <span>Professional Certifications</span>
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Timeline */}
@@ -304,41 +232,6 @@ const EducationTimeline = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Summary Stats */}
-        <div className="mt-20 bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Education Summary</h3>
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <GraduationCap className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-gray-900">1</div>
-              <div className="text-gray-600">Degree</div>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-gray-900">4</div>
-              <div className="text-gray-600">Certifications</div>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Code className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-gray-900">15+</div>
-              <div className="text-gray-600">Skills Acquired</div>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-2xl font-bold text-gray-900">4</div>
-              <div className="text-gray-600">Years Experience</div>
-            </div>
           </div>
         </div>
       </div>

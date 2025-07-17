@@ -6,6 +6,7 @@ import AboutSection from './pages/AboutSection';
 import EducationSection from './pages/EducationSection'
 import ProjectSection from './pages/ProjectSection';
 import Sertifikat from './pages/Sertifikat'
+import PatentsSection from './pages/PatensSection';
 import SkillSection from './pages/SkillSection';
 import ContactSection from './pages/ContactSection';
 import Footer from './components/Footer';
@@ -20,6 +21,7 @@ const App = () => {
       <EducationSection />
       <ProjectSection />
       <Sertifikat />
+      <PatentsSection />
       <SkillSection />
       <ContactSection />
       <Footer />

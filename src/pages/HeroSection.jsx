@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, User, Github, Linkedin, Mail, Code, Sparkles } from 'lucide-react';
+import { ChevronDown, User, Github, Linkedin, Mail, Code, Sparkles, Instagram } from 'lucide-react';
 import FotoProfile from '../assets/profile/foto.jpeg'
 
-// SVG Logo Components
 const ReactLogo = ({ size = 40, className = "" }) => (
   <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none">
     <g stroke="#61DAFB" strokeWidth="0.5" fill="none">
@@ -13,35 +12,30 @@ const ReactLogo = ({ size = 40, className = "" }) => (
     <circle cx="12" cy="12" r="2" fill="#61DAFB" />
   </svg>
 );
-
 const JSLogo = ({ size = 40, className = "" }) => (
   <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="#F7DF1E">
     <rect width="24" height="24" rx="2" fill="#F7DF1E" />
     <path d="M7.5 15.5c0 1.5-1 2.5-2.5 2.5S2.5 17 2.5 15.5s1-2.5 2.5-2.5 2.5 1 2.5 2.5zM16.5 15.5c0 1.5-1 2.5-2.5 2.5s-2.5-1-2.5-2.5 1-2.5 2.5-2.5 2.5 1 2.5 2.5z" fill="#000" />
   </svg>
 );
-
 const NodeLogo = ({ size = 40, className = "" }) => (
   <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="#68A063">
     <path d="M12 2l10 6v8l-10 6-10-6V8z" stroke="#68A063" strokeWidth="1" fill="none" />
     <circle cx="12" cy="12" r="3" fill="#68A063" />
   </svg>
 );
-
 const GoLogo = ({ size = 40, className = "" }) => (
   <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="#00ADD8">
     <path d="M6 9h12v6H6z" fill="#00ADD8" />
     <path d="M4 11h2v2H4zM18 11h2v2h-2z" fill="#00ADD8" />
   </svg>
 );
-
 const PythonLogo = ({ size = 40, className = "" }) => (
   <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="#3776AB">
     <path d="M12 2C8 2 6 4 6 8v2h6v1H4c-1 0-2 1-2 2v2c0 1 1 2 2 2h2v-2c0-2 2-4 4-4h6c1 0 2-1 2-2V8c0-4-2-6-6-6z" fill="#3776AB" />
     <path d="M12 22c4 0 6-2 6-6v-2h-6v-1h8c1 0 2-1 2-2v-2c0-1-1-2-2-2h-2v2c0 2-2 4-4 4H8c-1 0-2 1-2 2v1c0 4 2 6 6 6z" fill="#FFD43B" />
   </svg>
 );
-
 const DockerLogo = ({ size = 40, className = "" }) => (
   <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="#2496ED">
     <rect x="2" y="8" width="20" height="8" rx="1" fill="#2496ED" />
@@ -50,7 +44,6 @@ const DockerLogo = ({ size = 40, className = "" }) => (
     <rect x="14" y="10" width="2" height="4" fill="white" />
   </svg>
 );
-
 const HeroSection = () => {
   const [currentText, setCurrentText] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -64,43 +57,29 @@ const HeroSection = () => {
     { Component: DockerLogo, name: "Docker", color: "#2496ED" }
   ];
 
-  const OrbitingLogo = ({ logo, index, total, radius = 300, duration = 20 }) => {
-    const angle = (index / total) * 360;
-    const animationDelay = (index / total) * duration;
+  const OrbitingLogo = ({ logo, index, total, radius = 300 }) => {
+    const angle = (index / total) * 2 * Math.PI; 
+    const x = radius * Math.cos(angle);
+    const y = radius * Math.sin(angle);
 
     return (
       <div
-        className="absolute opacity-30 hover:opacity-80 transition-opacity duration-300"
+        className="absolute"
         style={{
-          animation: `orbit ${duration}s linear infinite`,
-          animationDelay: `-${animationDelay}s`,
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
+          left: `calc(50% + ${x}px)`,
+          top: `calc(50% + ${y}px)`,
+          transform: `translate(-50%, -50%)`,
         }}
       >
-        <div
-          className="absolute hover:scale-125 transition-transform duration-300"
-          style={{
-            width: `${radius}px`,
-            height: `${radius}px`,
-            transform: `rotate(${angle}deg)`,
-          }}
-        >
-          <div
-            className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-            style={{
-              transform: `translateX(-50%) translateY(-50%) rotate(-${angle}deg)`,
-            }}
-          >
-            <logo.Component size={45} className="drop-shadow-lg hover:drop-shadow-2xl transition-all duration-300" />
-          </div>
-        </div>
+        <logo.Component
+          size={45}
+          className="opacity-40 hover:opacity-100 transition-all hover:scale-125 drop-shadow-lg hover:drop-shadow-2xl"
+        />
       </div>
     );
   };
 
-  const texts = ['Full Stack Web Developer', 'Golang Enthusiast', 'Digital Innovator', 'Problem Solver'];
+  const texts = ['Full Stack Web Developer', 'Golang Enthusiast', 'Junior Data Scientist','Problem Solver'];
 
   useEffect(() => {
     setIsVisible(true);
@@ -182,7 +161,7 @@ const HeroSection = () => {
                   alt="Foto Profil"
                   className="w-full h-full object-cover rounded-full"
                 />
-              
+
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
@@ -212,9 +191,9 @@ const HeroSection = () => {
 
         <div className="flex justify-center gap-6 mb-8">
           {[
-            { icon: Github, href: "#", color: "hover:text-gray-400" },
-            { icon: Linkedin, href: "#", color: "hover:text-blue-400" },
-            { icon: Mail, href: "#", color: "hover:text-red-400" }
+            { icon: Github, href: "https://github.com/ImamIryunullah", color: "hover:text-gray-400" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/m-imam-iryunullah-376b80254/", color: "hover:text-blue-400" },
+            { icon: Instagram, href: "https://www.instagram.com/mohammadimamm_?igsh=ZDN0NHRoaGd2bzFr", color: "hover:text-red-400" }
           ].map((social, index) => (
             <a
               key={index}
@@ -237,9 +216,10 @@ const HeroSection = () => {
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
-
           <a
-            href="#certificates"
+            href="/dokumen/cv_M_Imam_Iryunullah.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25"
           >
             <span className="relative z-10 flex items-center gap-2">
@@ -275,17 +255,6 @@ const HeroSection = () => {
           backgroundSize: '50px 50px'
         }} />
       </div>
-
-      <style jsx>{`
-        @keyframes orbit {
-          from {
-            transform: translate(-50%, -50%) rotate(0deg);
-          }
-          to {
-            transform: translate(-50%, -50%) rotate(360deg);
-          }
-        }
-      `}</style>
     </section>
   );
 };

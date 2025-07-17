@@ -27,7 +27,7 @@ const ProjectsSection = () => {
       featured: true,
       category: 'fullstack',
       
-      year: '2024',
+      year: '2025',
       team: 4,
       duration: '6 months',
       highlights: ['Real-time notifications', 'Advanced search', 'Admin dashboard', 'Mobile responsive']
@@ -43,9 +43,9 @@ const ProjectsSection = () => {
       featured: true,
       category: 'fullstack',
       
-      year: '2024',
-      team: 3,
-      duration: '4 months',
+      year: '2025',
+      team: 2,
+      duration: '3 weeks',
       highlights: ['Event management', 'Live scoring', 'Registration system', 'Real-time updates']
     },
     {
@@ -59,9 +59,9 @@ const ProjectsSection = () => {
       featured: true,
       category: 'frontend',
       
-      year: '2024',
-      team: 2,
-      duration: '3 months',
+      year: '2025',
+      team: 1,
+      duration: '1 week',
       highlights: ['3D visualizations', 'Inventory tracking', 'Analytics dashboard', 'Real-time updates']
     },
     {
@@ -75,9 +75,9 @@ const ProjectsSection = () => {
       featured: false,
       category: 'frontend',
       
-      year: '2023',
+      year: '2025',
       team: 1,
-      duration: '2 months',
+      duration: '1 day',
       highlights: ['Secure authentication', 'Session management', 'Network monitoring', 'Performance optimized']
     },
     {
@@ -106,9 +106,9 @@ const ProjectsSection = () => {
       featured: false,
       category: 'backend',
       
-      year: '2023',
-      team: 1,
-      duration: '1 month',
+      year: '2025',
+      team: 2,
+      duration: '2 days',
       highlights: ['Parallel computing', 'Edge detection', 'Performance optimized', 'Advanced algorithms']
     },
     {
@@ -121,9 +121,9 @@ const ProjectsSection = () => {
       live: '#',
       featured: false,
       category: 'backend',
-      year: '2023',
+      year: '2024',
       team: 1,
-      duration: '2 weeks',
+      duration: '2 days',
       highlights: ['Auto categorization', 'Batch processing', 'Smart sorting', 'Custom rules']
     }
   ];
@@ -424,7 +424,7 @@ const ProjectsSection = () => {
                       rel="noopener noreferrer"
                       className="flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
                     >
-                      <Github className="w-5 h-5 mr-2" />
+                      <Github className="w-3 h-3 mr-2" />
                       View Code
                     </a>
                     <a

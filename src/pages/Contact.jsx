@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Github, Linkedin } from 'lucide-react';
-
-
+import useWeb3Forms from '@web3forms/react';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Contact = () => {
@@ -11,20 +11,28 @@ const Contact = () => {
     message: ''
   });
 
+  const accessKey = import.meta.env.VITE_WEB3FORM_KEY;
+  const { submit } = useWeb3Forms({ access_key: accessKey });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await submit(formData);
+    console.log(res); 
+  
+    if (res.success) {
+      toast.success("Pesan Anda sudah terkirim!");
+      setFormData({ name: '', email: '', message: '' });
+    } else {
+      toast.error("Gagal mengirim pesan: " + res.message);
+    }
+  };
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value
     }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Kirim form atau tampilkan alert
-    alert("Pesan terkirim!");
-    // Reset form
-    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
@@ -82,7 +90,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -138,7 +145,11 @@ const Contact = () => {
             >
               Send Message
             </button>
+
+            {/* Toast notification */}
+            <ToastContainer />
           </form>
+
         </div>
       </div>
     </section>
